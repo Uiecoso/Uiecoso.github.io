@@ -1,397 +1,485 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>it's fate — Support, Privacy & Terms</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>it's fate — Support, Privacy Policy & Terms of Service</title>
+<meta name="description" content="App support, Privacy Policy and Terms of Service for the it's fate mobile application.">
+<meta name="theme-color" content="#FBF9F6">
+<style>
+  :root{
+    --bg:#FBF9F6;
+    --card:#FFFFFF;
+    --fg:#241F1C;
+    --muted:#6B6259;
+    --line:#E7E0D7;
+    --accent:#8C5A2B;
+    --accent-soft:#FBEFE1;
+    --radius:12px;
+    --wrap:820px;
+  }
+  *{box-sizing:border-box}
+  html{-webkit-text-size-adjust:100%; scroll-behavior:smooth}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--fg);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","Noto Sans SC","PingFang SC","Hiragino Sans GB",Roboto,"Helvetica Neue",Arial,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:var(--accent)}
+  .wrap{max-width:var(--wrap); margin:0 auto; padding:0 22px}
 
-        body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-            background: #f7f7fa;
-            color: #1c1c1e;
-            padding: 24px 16px;
-            line-height: 1.7;
-        }
+  /* ---------- header ---------- */
+  .site-header{
+    position:sticky; top:0; z-index:20;
+    background:rgba(251,249,246,.94);
+    -webkit-backdrop-filter:saturate(180%) blur(10px);
+    backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  .bar{
+    max-width:var(--wrap); margin:0 auto; padding:12px 22px 0;
+    display:flex; align-items:center; justify-content:space-between; gap:16px;
+  }
+  .brand{
+    font-family:"Noto Serif SC",Georgia,"Songti SC",serif;
+    font-size:17px; font-weight:700; letter-spacing:.01em;
+  }
+  .lang{display:flex; gap:6px; flex:none}
+  .lang button{
+    font:inherit; font-size:13px; line-height:1;
+    padding:7px 14px; border-radius:999px; cursor:pointer;
+    border:1px solid var(--line); background:#fff; color:var(--muted);
+    transition:background .15s, color .15s, border-color .15s;
+  }
+  .lang button[aria-pressed="true"]{background:var(--accent); border-color:var(--accent); color:#fff; font-weight:600}
+  .lang button:hover:not([aria-pressed="true"]){border-color:#CFC5B8; color:var(--fg)}
+  .nav{
+    max-width:var(--wrap); margin:0 auto; padding:8px 22px 12px;
+    display:flex; gap:22px; overflow-x:auto; -webkit-overflow-scrolling:touch;
+  }
+  .nav::-webkit-scrollbar{display:none}
+  .nav a{
+    flex:none; font-size:14px; color:var(--muted); text-decoration:none;
+    padding-bottom:2px; border-bottom:2px solid transparent; white-space:nowrap;
+  }
+  .nav a:hover{color:var(--fg); border-bottom-color:var(--line)}
 
-        .container {
-            max-width: 820px;
-            margin: 0 auto;
-        }
+  /* ---------- content ---------- */
+  main{padding:8px 0 40px}
+  section{scroll-margin-top:104px; padding-top:36px}
+  section + section{border-top:1px solid var(--line); margin-top:36px}
+  h1{
+    font-family:"Noto Serif SC",Georgia,"Songti SC",serif;
+    font-size:27px; line-height:1.3; margin:0 0 6px; font-weight:700;
+    display:flex; align-items:center; gap:11px;
+  }
+  h1 .ico{flex:none; width:26px; height:26px; color:var(--accent)}
+  h2{
+    font-family:"Noto Serif SC",Georgia,"Songti SC",serif;
+    font-size:18px; margin:32px 0 8px; font-weight:700; line-height:1.5;
+  }
+  h3{
+    font-family:"Noto Serif SC",Georgia,"Songti SC",serif;
+    font-size:16px; margin:26px 0 6px; font-weight:700;
+    display:flex; align-items:center; gap:8px;
+  }
+  h3 .ico{flex:none; width:18px; height:18px; color:var(--accent)}
+  p{margin:10px 0}
+  ul{margin:10px 0; padding-left:22px}
+  li{margin:7px 0}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+    font-size:.88em; background:#F3EFE9; padding:1px 6px; border-radius:5px;
+  }
+  .updated{font-size:13.5px; color:var(--muted); margin:0 0 6px}
+  .lead{font-size:16px}
+  .card{
+    background:var(--card); border:1px solid var(--line); border-radius:var(--radius);
+    padding:22px 26px; margin:18px 0;
+  }
+  .note{
+    background:#FFF7EC; border:1px solid #F0DFC4; border-left:3px solid var(--accent);
+    padding:14px 18px; border-radius:8px; margin:18px 0; font-size:15px;
+  }
+  .mail{
+    display:inline-flex; align-items:center; gap:7px;
+    font-weight:600; font-size:16.5px; text-decoration:none;
+    word-break:break-all;
+  }
+  .mail svg{flex:none; width:17px; height:17px}
+  .resp{color:var(--muted); font-size:15px; margin-top:14px}
 
-        .card {
-            background: #ffffff;
-            border-radius: 16px;
-            padding: 32px 36px;
-            margin-bottom: 28px;
-            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
-        }
+  footer{
+    border-top:1px solid var(--line); margin-top:46px; padding:24px 0 60px;
+    color:var(--muted); font-size:13.5px;
+  }
+  footer .wrap{display:flex; flex-wrap:wrap; gap:12px; justify-content:space-between}
 
-        h1 {
-            font-size: 28px;
-            font-weight: 700;
-            color: #1c1c1e;
-            border-bottom: 3px solid #007aff;
-            padding-bottom: 12px;
-            margin-bottom: 20px;
-        }
+  [hidden]{display:none !important}
 
-        h2 {
-            font-size: 20px;
-            font-weight: 600;
-            color: #1c1c1e;
-            margin-top: 24px;
-            margin-bottom: 10px;
-        }
-
-        h3 {
-            font-size: 17px;
-            font-weight: 600;
-            color: #1c1c1e;
-            margin-top: 18px;
-            margin-bottom: 6px;
-        }
-
-        p {
-            margin-bottom: 12px;
-        }
-
-        ul {
-            padding-left: 24px;
-            margin-bottom: 14px;
-        }
-
-        ul li {
-            margin-bottom: 6px;
-        }
-
-        a {
-            color: #007aff;
-            text-decoration: none;
-        }
-
-        a:hover {
-            text-decoration: underline;
-        }
-
-        .footer {
-            text-align: center;
-            font-size: 14px;
-            color: #8e8e93;
-            margin-top: 12px;
-            padding-bottom: 10px;
-        }
-
-        .badge {
-            display: inline-block;
-            background: #007aff;
-            color: #fff;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 2px 12px;
-            border-radius: 20px;
-            margin-left: 8px;
-        }
-
-        hr {
-            border: none;
-            border-top: 1px solid #e5e5ea;
-            margin: 28px 0 18px;
-        }
-
-        @media (max-width: 600px) {
-            .card {
-                padding: 20px 18px;
-            }
-            h1 {
-                font-size: 22px;
-            }
-        }
-    </style>
+  @media (max-width:520px){
+    h1{font-size:23px}
+    h1 .ico{width:22px;height:22px}
+    .card{padding:18px 18px}
+    section{scroll-margin-top:112px}
+  }
+</style>
 </head>
 <body>
 
-<div class="container">
-
-    <!-- ============================================================ -->
-    <!-- 板块 1：技术支持 (Support)                                    -->
-    <!-- ============================================================ -->
-    <div class="card">
-        <h1>📱 App Support</h1>
-
-        <p>Thank you for using <strong>it's fate</strong>. If you encounter any issues, have questions, or would like to share feedback, please don't hesitate to reach out.</p>
-
-        <h2>📧 Contact</h2>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></li>
-        </ul>
-
-        <p>We strive to respond to all inquiries within 1–3 business days.</p>
+<header class="site-header">
+  <div class="bar">
+    <div class="brand">it's fate</div>
+    <div class="lang" role="group" aria-label="Language">
+      <button type="button" id="btn-en" aria-pressed="true">English</button>
+      <button type="button" id="btn-zh" aria-pressed="false">简体中文</button>
     </div>
+  </div>
+  <nav class="nav" aria-label="Sections">
+    <a href="#support"><span data-lang="en">Support</span><span data-lang="zh" hidden>应用支持</span></a>
+    <a href="#privacy"><span data-lang="en">Privacy Policy</span><span data-lang="zh" hidden>隐私政策</span></a>
+    <a href="#terms"><span data-lang="en">Terms of Service</span><span data-lang="zh" hidden>服务条款</span></a>
+  </nav>
+</header>
 
-    <!-- ============================================================ -->
-    <!-- 板块 2：隐私政策 (Privacy Policy)                             -->
-    <!-- ============================================================ -->
-    <div class="card">
-        <h1>🔒 Privacy Policy</h1>
+<main class="wrap">
 
-        <p><strong>Last updated:</strong> August 25, 2026</p>
+  <!-- =========================== SUPPORT =========================== -->
+  <section id="support">
+    <article data-lang="en">
+      <h1>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/>
+        </svg>
+        App Support
+      </h1>
 
-        <h2>Introduction</h2>
-        <p>Welcome to <strong>it's fate</strong> ("we," "our," or "us"). We are committed to protecting your privacy and ensuring you have a positive experience when using our mobile application.</p>
-        <p>it's fate is a fortune-telling and daily luck drawing app that allows users to select daily activities (24 activities available), shake a fortune cylinder to draw fortune sticks, and receive personalized luck predictions and advice. The app offers a free version (2 fortune draws per day) and a premium version (one-time purchase for unlimited draws). The app supports 18 languages including Arabic with right-to-left (RTL) layout, features activity scene backgrounds, fortune card generation with save and share capabilities, and includes built-in Privacy Policy and Terms of Service pages.</p>
-        <p>This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you use the it's fate mobile application (the "App"). Please read this Privacy Policy carefully.</p>
-        <p><strong>By using the App, you consent to the practices described in this Privacy Policy.</strong> If you do not agree with our policies and practices, please do not use the App.</p>
+      <p class="lead">Thank you for using <strong>it's fate</strong>. If you encounter any issues, have questions, or would like to share feedback, please don't hesitate to reach out.</p>
 
-        <h2>Information We Collect</h2>
-
-        <h3>1. Information You Provide to Us</h3>
-        <p>We do not require you to create an account or provide personal information to use the App. However, we may collect the following information:</p>
+      <div class="card">
+        <h3>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/>
+          </svg>
+          Contact
+        </h3>
         <ul>
-            <li><strong>Device Identifier:</strong> We collect a unique device identifier to manage your purchase status and app preferences. This identifier is stored locally on your device and may be transmitted to our servers for purchase verification purposes.</li>
-            <li><strong>Purchase Information:</strong> If you purchase the premium version of the App, we receive transaction information from Apple App Store or Google Play, including transaction ID, product ID, and purchase date. We do not receive your payment card details.</li>
+          <li><strong>Email:</strong> <a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></li>
         </ul>
+        <p class="resp">We strive to respond to all inquiries within 1–3 business days.</p>
+      </div>
+    </article>
 
-        <h3>2. Information Collected Automatically</h3>
-        <p>When you use the App, we may automatically collect certain information:</p>
+    <article data-lang="zh" hidden lang="zh-Hans">
+      <h1>
+        <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <rect x="6" y="2" width="12" height="20" rx="2.5"/><path d="M11 18.5h2"/>
+        </svg>
+        应用支持
+      </h1>
+
+      <p class="lead">感谢您使用<strong>「it's fate」</strong>。如果您遇到任何问题、有疑问，或希望提供反馈，欢迎随时与我们联系。</p>
+
+      <div class="card">
+        <h3>
+          <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2.5" y="4.5" width="19" height="15" rx="2.5"/><path d="m3 7 9 6 9-6"/>
+          </svg>
+          联系方式
+        </h3>
         <ul>
-            <li><strong>Device Information:</strong> Device model, operating system version, unique device identifiers, and mobile network information.</li>
-            <li><strong>Usage Information:</strong> App version, pages viewed, features used, time spent on the App, and crash logs.</li>
-            <li><strong>Log Data:</strong> IP address, browser type, access times, and referring URLs.</li>
+          <li><strong>邮箱：</strong><a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></li>
         </ul>
+        <p class="resp">我们会在 1–3 个工作日内回复所有咨询。</p>
+      </div>
+    </article>
+  </section>
 
-        <h3>3. Information from Third Parties</h3>
-        <p>We may receive information about you from third parties, including:</p>
-        <ul>
-            <li><strong>Apple App Store and Google Play:</strong> Purchase verification data when you make an in-app purchase.</li>
-            <li><strong>Analytics Providers:</strong> Aggregated usage data to help us improve the App.</li>
-        </ul>
+  <!-- =========================== PRIVACY =========================== -->
+  <section id="privacy">
+    <article data-lang="en">
+      <h1>Privacy Policy</h1>
+      <p class="updated">Last updated: September 18, 2026</p>
 
-        <h2>How We Use Your Information</h2>
-        <p>We use the information we collect for the following purposes:</p>
-        <ul>
-            <li><strong>To Provide and Maintain the App:</strong> Including operating, maintaining, and improving App features.</li>
-            <li><strong>To Process Purchases:</strong> Verifying in-app purchases and managing your premium access status.</li>
-            <li><strong>To Improve User Experience:</strong> Understanding how users interact with the App to enhance features and design.</li>
-            <li><strong>To Ensure App Security:</strong> Detecting, preventing, and addressing technical issues, fraud, and security breaches.</li>
-            <li><strong>To Comply with Legal Obligations:</strong> Meeting applicable legal, regulatory, and compliance requirements.</li>
-            <li><strong>For Analytics:</strong> Analyzing trends and usage patterns to improve our services.</li>
-        </ul>
+      <p>Thank you for using <strong>it's fate</strong>. This Privacy Policy explains what information the app collects, how it is used, and the choices you have. It applies to the mobile application published under the bundle identifier <code>com.itsfate.app</code>.</p>
 
-        <h2>Sharing Your Information</h2>
-        <p>We do not sell, trade, or rent your personal information to third parties. We may share your information in the following circumstances:</p>
+      <h2>1. Information We Collect</h2>
+      <p>The app is designed so that its core features work without an account. We do not ask for your name, email address, phone number, or any other directly identifying information.</p>
+      <p>Stored locally on your device:</p>
+      <ul>
+        <li>Fortune draw results and your card history</li>
+        <li>Activity status for the current day, and your daily draw count</li>
+        <li>Your language preference</li>
+        <li>A randomly generated anonymous device identifier</li>
+      </ul>
+      <p>Sent to our servers, only when verifying a purchase:</p>
+      <ul>
+        <li>An anonymous device identifier</li>
+        <li>The transaction identifier and product identifier of your purchase</li>
+        <li>The purchase receipt / transaction payload issued by the platform store</li>
+      </ul>
 
-        <h3>1. Service Providers</h3>
-        <p>We may share information with trusted third-party service providers who perform services on our behalf, including:</p>
-        <ul>
-            <li>Hosting and cloud storage providers</li>
-            <li>Analytics and crash reporting services</li>
-            <li>Payment processing platforms (Apple and Google handle payments directly)</li>
-        </ul>
-        <p>These service providers are authorized to use your information only as necessary to provide services to us.</p>
+      <h2>2. Purchase Information</h2>
+      <p>Premium features are sold through the platform's in-app purchase system (the Apple App Store on iOS, Google Play on Android). Payments are processed entirely by the platform; <strong>we never receive or store your payment card details</strong>.</p>
+      <p>To confirm that a purchase is valid and to unlock Premium features, the app sends the transaction identifier and receipt to our verification server. Our server forwards this to Apple's App Store Server API for validation and stores the resulting record (anonymous device identifier, transaction identifier, product identifier, platform, and verification timestamp).</p>
 
-        <h3>2. Legal Requirements</h3>
-        <p>We may disclose your information if required to do so by law or in response to valid requests by public authorities (e.g., a court or government agency).</p>
+      <h2>3. How We Use Information</h2>
+      <ul>
+        <li>To provide the fortune-drawing features and keep track of your daily progress</li>
+        <li>To verify in-app purchases and unlock Premium features on your device</li>
+        <li>To restore your purchase on the same device or the same store account</li>
+        <li>To remember your language preference</li>
+        <li>To diagnose and fix technical faults</li>
+      </ul>
+      <p>We do not use your information for advertising, and we do not sell it to anyone.</p>
 
-        <h3>3. Business Transfers</h3>
-        <p>In connection with any merger, sale of company assets, financing, or acquisition of all or a portion of our business, your information may be transferred as part of the transaction.</p>
+      <h2>4. Data Storage and Security</h2>
+      <p>Your usage data — draw results, card history, daily counts, and language preference — is stored locally on your device and can be erased at any time using <em>Settings → Reset All Data</em>.</p>
+      <p>Purchase verification records are stored on our servers, which are protected by HTTPS in transit and by access controls at rest. These records contain only the anonymous device identifier, transaction identifier, product identifier, platform, and timestamp. They contain no name, email address, or payment details.</p>
 
-        <h3>4. With Your Consent</h3>
-        <p>We may disclose your information for any other purpose with your explicit consent.</p>
+      <h2>5. Third-Party Services</h2>
+      <p>The app uses the platform's in-app purchase service (Apple App Store / Google Play). Your purchase is also subject to the platform's own privacy policy. We do not integrate advertising networks, attribution SDKs, or third-party analytics that track you across other apps or websites.</p>
 
-        <h2>Data Retention</h2>
-        <p>We retain your information for as long as necessary to fulfill the purposes outlined in this Privacy Policy, unless a longer retention period is required or permitted by law.</p>
-        <ul>
-            <li><strong>Purchase records:</strong> Retained for as long as necessary to verify and maintain your premium access.</li>
-            <li><strong>Usage analytics:</strong> Retained for a reasonable period to improve the App, after which it is aggregated or deleted.</li>
-            <li><strong>Device identifiers:</strong> Stored locally on your device and may be cleared by uninstalling the App.</li>
-        </ul>
+      <h2>6. Data Retention and Deletion</h2>
+      <p>Local data remains on your device until you reset it in Settings or delete the app. Purchase verification records are kept for as long as needed to honour your purchase and to meet accounting and legal obligations. You may request deletion of the verification record associated with your anonymous device identifier by contacting us at the address below.</p>
 
-        <h2>Data Security</h2>
-        <p>We implement appropriate technical and organizational security measures to protect your information against unauthorized access, alteration, disclosure, or destruction. These measures include:</p>
-        <ul>
-            <li>Encryption of data in transit using HTTPS/TLS</li>
-            <li>Secure storage of purchase verification data</li>
-            <li>Access controls limiting employee access to personal information</li>
-            <li>Regular security assessments and updates</li>
-        </ul>
-        <p>However, no method of transmission over the Internet or electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your information, we cannot guarantee absolute security.</p>
+      <h2>7. Children's Privacy</h2>
+      <p>The app is not directed to children under the age of 13, and we do not knowingly collect personal information from them. If you believe a child has provided us with such information, please contact us and we will delete it.</p>
 
-        <h2>Your Privacy Rights</h2>
-        <p>Depending on your jurisdiction, you may have certain rights regarding your personal information:</p>
+      <h2>8. Your Rights</h2>
+      <p>Depending on where you live, you may have the right to access, correct, or delete the information we hold about you, or to object to its processing. Contact us at the address below and we will respond within the period required by applicable law.</p>
 
-        <h3>For Users in the European Economic Area (EEA) and United Kingdom</h3>
-        <p>Under the General Data Protection Regulation (GDPR), you have the right to:</p>
-        <ul>
-            <li><strong>Access:</strong> Request a copy of the personal information we hold about you.</li>
-            <li><strong>Rectification:</strong> Request correction of inaccurate or incomplete information.</li>
-            <li><strong>Erasure:</strong> Request deletion of your personal information, subject to certain exceptions.</li>
-            <li><strong>Restriction:</strong> Request restriction of processing of your information.</li>
-            <li><strong>Data Portability:</strong> Request transfer of your information to another service provider.</li>
-            <li><strong>Objection:</strong> Object to processing of your information for certain purposes.</li>
-            <li><strong>Withdraw Consent:</strong> Withdraw your consent at any time.</li>
-        </ul>
-        <p>To exercise these rights, please contact us at <a href="mailto:oyu131@gmail.com">oyu131@gmail.com</a>.</p>
+      <h2>9. International Transfers</h2>
+      <p>Our verification server may process data in a country other than yours. Where this happens, we take reasonable steps to ensure the data continues to receive an adequate level of protection.</p>
 
-        <h3>For Users in California</h3>
-        <p>Under the California Consumer Privacy Act (CCPA), you have the right to:</p>
-        <ul>
-            <li>Know what personal information is collected, used, shared, or sold.</li>
-            <li>Delete your personal information.</li>
-            <li>Opt-out of the sale of your personal information (we do not sell your information).</li>
-            <li>Non-discrimination for exercising your CCPA rights.</li>
-        </ul>
+      <h2>10. Changes to This Policy</h2>
+      <p>We may update this Privacy Policy from time to time. Material changes will be reflected by an updated "Last updated" date on this page, and where appropriate we will also notify you in the app.</p>
 
-        <h3>For Users in Other Jurisdictions</h3>
-        <p>We will comply with applicable local data protection laws. Please contact us to exercise any rights available under your local law.</p>
+      <h2>11. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or wish to exercise your rights, please contact us at:</p>
+      <p><a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></p>
+    </article>
 
-        <h2>Children's Privacy</h2>
-        <p>The App is not intended for use by children under the age of 13 (or the applicable age of digital consent in your jurisdiction). We do not knowingly collect personal information from children. If you believe we have inadvertently collected information from a child, please contact us and we will take steps to delete such information.</p>
+    <article data-lang="zh" hidden lang="zh-Hans">
+      <h1>隐私政策</h1>
+      <p class="updated">最后更新：2026 年 9 月 18 日</p>
 
-        <h2>International Data Transfers</h2>
-        <p>Your information may be transferred to and maintained on servers located outside of your state, province, country, or other governmental jurisdiction where data protection laws may differ. If you are located outside the United States and choose to provide information to us, please note that we transfer data to the United States and process it there.</p>
-        <p>For users in the EEA, we rely on appropriate safeguards for international data transfers, including Standard Contractual Clauses where applicable.</p>
+      <p>感谢您使用<strong>「it's fate」</strong>。本隐私政策将说明本应用收集哪些信息、如何使用这些信息，以及您享有的选择权。本政策适用于 Bundle Identifier 为 <code>com.itsfate.app</code> 的移动应用。</p>
 
-        <h2>Changes to This Privacy Policy</h2>
-        <p>We may update this Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy in the App and updating the "Last updated" date at the top of this policy. You are advised to review this Privacy Policy periodically for any changes.</p>
-        <p>Changes to this Privacy Policy are effective when they are posted in the App. Your continued use of the App after the effective date of the revised Privacy Policy constitutes your acceptance of the changes.</p>
+      <h2>一、我们收集的信息</h2>
+      <p>本应用的设计原则是：核心功能无需注册账号即可使用。我们不会要求您提供姓名、电子邮箱、电话号码或其他可直接识别个人身份的信息。</p>
+      <p>保存在您设备本地的数据：</p>
+      <ul>
+        <li>抽签结果与运势卡历史</li>
+        <li>当日活动状态与每日抽签次数</li>
+        <li>您的语言偏好设置</li>
+        <li>随机生成的匿名设备标识符</li>
+      </ul>
+      <p>仅在验证购买时发送至我们服务器的数据：</p>
+      <ul>
+        <li>匿名设备标识符</li>
+        <li>本次购买的交易标识符与商品标识符</li>
+        <li>由平台商店签发的购买凭据 / 交易凭证</li>
+      </ul>
 
-        <h2>Contact Us</h2>
-        <p>If you have any questions, concerns, or requests regarding this Privacy Policy or our privacy practices, please contact us at:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></li>
-        </ul>
-        <p>We will respond to your inquiry within a reasonable timeframe.</p>
-    </div>
+      <h2>二、购买信息</h2>
+      <p>高级版通过平台的应用内购买系统销售（iOS 为 Apple App Store，Android 为 Google Play）。支付全程由平台处理，<strong>我们不会接收或存储您的支付卡片信息</strong>。</p>
+      <p>为确认购买有效性并解锁高级版功能，应用会将交易标识符与购买凭据发送至我们的校验服务器。服务器会将其提交至 Apple 的 App Store Server API 进行验签，并保存校验结果记录（匿名设备标识符、交易标识符、商品标识符、平台、校验时间）。</p>
 
-    <!-- ============================================================ -->
-    <!-- 板块 3：服务条款 (Terms of Service)                          -->
-    <!-- ============================================================ -->
-    <div class="card">
-        <h1>📄 Terms of Service</h1>
+      <h2>三、我们如何使用这些信息</h2>
+      <ul>
+        <li>提供抽签功能并记录您的每日进度</li>
+        <li>校验应用内购买，并在您的设备上解锁高级版功能</li>
+        <li>在同一设备或同一商店账号上恢复您的购买</li>
+        <li>记住您的语言偏好</li>
+        <li>排查与修复技术故障</li>
+      </ul>
+      <p>我们不会将这些信息用于广告投放，也不会向任何第三方出售。</p>
 
-        <p><strong>Last updated:</strong> August 25, 2026</p>
+      <h2>四、数据存储与安全</h2>
+      <p>您的使用数据 —— 抽签结果、运势卡历史、每日次数、语言偏好 —— 保存在您的设备本地，可随时通过<em>「设置 → 重置所有数据」</em>清除。</p>
+      <p>购买校验记录保存在我们的服务器上，传输过程使用 HTTPS 加密，存储侧设有访问权限控制。这些记录仅包含匿名设备标识符、交易标识符、商品标识符、平台与时间戳，不包含姓名、邮箱或支付信息。</p>
 
-        <h2>Acceptance of Terms</h2>
-        <p>Welcome to <strong>it's fate</strong> ("the App"), operated by its fate ("we," "our," or "us"). These Terms of Service ("Terms") govern your access to and use of the App.</p>
-        <p>By downloading, installing, or using the App, you agree to be bound by these Terms. If you do not agree to these Terms, please do not use the App.</p>
-        <p><strong>You must be at least 13 years old (or the age of digital consent in your jurisdiction) to use the App.</strong> If you are under the applicable age, you may only use the App with the involvement of a parent or guardian.</p>
+      <h2>五、第三方服务</h2>
+      <p>本应用使用平台的应用内购买服务（Apple App Store / Google Play），您的购买行为同时受该平台自身隐私政策约束。我们未接入广告网络、归因 SDK，或任何用于跨应用、跨网站追踪您的第三方分析服务。</p>
 
-        <h2>Description of Service</h2>
-        <p>it's fate is a mobile application that provides fortune-telling and daily luck drawing features. Users can select from 24 daily activities, shake a fortune cylinder to draw fortune sticks, and receive personalized luck predictions and advice. The app features activity scene backgrounds, shake animations with sound effects, fortune card generation with save and share capabilities, and a turnaround activity mechanism for unlucky draws.</p>
-        <p>The App offers:</p>
-        <ul>
-            <li><strong>Free Version:</strong> Limited to 2 fortune draws per day (resets at midnight local time).</li>
-            <li><strong>Premium Version (One-Time Purchase — $1.99):</strong> Unlimited fortune draws and access to all features, with a premium badge on the activity list.</li>
-        </ul>
-        <p>The App supports 18 languages including Arabic with right-to-left (RTL) layout, and includes built-in Privacy Policy and Terms of Service pages available in all supported languages.</p>
-        <p><strong>The App is for entertainment purposes only.</strong> Fortune predictions and advice should not be considered as professional, financial, legal, or medical advice.</p>
+      <h2>六、数据保留与删除</h2>
+      <p>本地数据将一直保留在您的设备上，直至您在设置中重置或卸载应用。购买校验记录将在为您兑现购买权益所必需的期间内保留，并满足财务与法律义务要求。您可通过下方联系方式，请求删除与您匿名设备标识符关联的校验记录。</p>
 
-        <h2>License</h2>
-        <p>Subject to your compliance with these Terms, we grant you a limited, non-exclusive, non-transferable, non-sublicensable, revocable license to download, install, and use the App on a mobile device that you own or control, solely for your personal, non-commercial use.</p>
-        <p>You may not:</p>
-        <ul>
-            <li>Copy, modify, distribute, sell, or lease any part of the App.</li>
-            <li>Reverse engineer, decompile, disassemble, or attempt to derive the source code of the App.</li>
-            <li>Remove, alter, or obscure any copyright, trademark, or other proprietary notices.</li>
-            <li>Use the App in any manner that could damage, disable, overburden, or impair the App.</li>
-            <li>Use any robot, spider, scraper, or other automated means to access the App.</li>
-            <li>Bypass any measures we may use to prevent or restrict access to the App.</li>
-            <li>Use the App for any illegal or unauthorized purpose.</li>
-        </ul>
+      <h2>七、儿童隐私</h2>
+      <p>本应用不面向 13 岁以下儿童，我们不会故意收集其个人信息。若您认为有儿童向我们提供了此类信息，请与我们联系，我们将予以删除。</p>
 
-        <h2>In-App Purchases</h2>
+      <h2>八、您的权利</h2>
+      <p>根据您所在地区的法律规定，您可能有权访问、更正或删除我们持有的与您相关的信息，或反对相关处理行为。请通过下方地址联系我们，我们将在法律规定的期限内予以答复。</p>
 
-        <h3>Premium Upgrade</h3>
-        <p>The App offers a one-time in-app purchase to unlock the premium version with unlimited features.</p>
-        <ul>
-            <li><strong>Purchase Process:</strong> Purchases are processed through the Apple App Store or Google Play, depending on your device.</li>
-            <li><strong>Price:</strong> The purchase price is displayed in the App and may vary by region. Prices include applicable taxes.</li>
-            <li><strong>Payment:</strong> Payment will be charged to your App Store or Google Play account at confirmation of purchase.</li>
-            <li><strong>No Subscription:</strong> This is a one-time purchase, not a subscription. You will not be charged recurring fees.</li>
-            <li><strong>Restore Purchases:</strong> If you change devices or reinstall the App, you can restore your purchase using the "Restore Purchase" feature in the App. Your purchase is tied to your App Store/Google Play account.</li>
-            <li><strong>Refunds:</strong> Refunds are handled by Apple or Google in accordance with their respective refund policies. We do not process refunds directly.</li>
-        </ul>
+      <h2>九、跨境传输</h2>
+      <p>我们的校验服务器可能在您所在国家/地区以外的地点处理数据。如发生此种情况，我们将采取合理措施，确保数据持续获得适当水平的保护。</p>
 
-        <h3>Free Version Limitations</h3>
-        <p>The free version allows 2 fortune draws per calendar day. Once you have reached the daily limit, you will be prompted to purchase the premium version to continue drawing. The daily limit resets at midnight local time.</p>
+      <h2>十、本政策的变更</h2>
+      <p>我们可能会不时更新本隐私政策。若发生重大变更，我们会在本页面更新「最后更新」日期，并在适当情况下于应用内通知您。</p>
 
-        <h2>User Content</h2>
-        <p>The App does not allow users to submit, post, or share user-generated content. All content within the App is generated by us.</p>
-        <p>You acknowledge that any fortune predictions, advice, or other content provided by the App is for entertainment purposes only and does not constitute professional advice.</p>
+      <h2>十一、联系我们</h2>
+      <p>如您对本隐私政策有任何疑问，或希望行使您的权利，请通过以下方式联系我们：</p>
+      <p><a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></p>
+    </article>
+  </section>
 
-        <h2>Intellectual Property Rights</h2>
-        <p>The App and its entire contents, features, and functionality (including but not limited to all information, software, text, displays, images, video, audio, and the design, selection, and arrangement thereof) are owned by us, our licensors, or other providers of such material and are protected by copyright, trademark, patent, trade secret, and other intellectual property or proprietary rights laws.</p>
-        <p>The it's fate name, logo, and all related names, logos, product and service names, designs, and slogans are trademarks of ours. You may not use such marks without our prior written permission.</p>
+  <!-- =========================== TERMS =========================== -->
+  <section id="terms">
+    <article data-lang="en">
+      <h1>Terms of Service</h1>
+      <p class="updated">Last updated: September 18, 2026</p>
 
-        <h2>Third-Party Services</h2>
-        <p>The App may integrate with or contain links to third-party services, including:</p>
-        <ul>
-            <li><strong>Apple App Store and Google Play:</strong> For app distribution and in-app purchases.</li>
-            <li><strong>Analytics Services:</strong> For usage tracking and crash reporting.</li>
-            <li><strong>Content Delivery Networks:</strong> For serving app assets.</li>
-        </ul>
-        <p>These third-party services have their own terms of service and privacy policies. We are not responsible for the practices of such third parties. We encourage you to review their terms and policies.</p>
+      <p>Welcome to <strong>it's fate</strong>. Please read these Terms of Service carefully before using the app. By downloading, installing, or using the app, you agree to be bound by these Terms. If you do not agree, please do not use the app.</p>
 
-        <h2>Disclaimer of Warranties</h2>
-        <p>THE APP IS PROVIDED ON AN "AS IS" AND "AS AVAILABLE" BASIS, WITHOUT ANY WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED. TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, WE DISCLAIM ALL WARRANTIES, EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, TITLE, AND NON-INFRINGEMENT.</p>
-        <p>We do not warrant that:</p>
-        <ul>
-            <li>The App will function uninterrupted, secure, or available at any particular time or location.</li>
-            <li>Any errors or defects will be corrected.</li>
-            <li>The App is free of viruses or other harmful components.</li>
-            <li>The results of using the App will meet your requirements.</li>
-        </ul>
-        <p>The fortune predictions and advice provided by the App are for entertainment purposes only. We make no representations or warranties regarding the accuracy, reliability, or completeness of any content provided by the App. You acknowledge that reliance on any such content is at your own risk.</p>
+      <div class="note">
+        <strong>Please note:</strong> it's fate is an entertainment app. Fortune readings are generated for fun and inspiration only. They are <strong>not</strong> professional advice of any kind — medical, legal, financial, or psychological — and you should not rely on them when making important decisions.
+      </div>
 
-        <h2>Limitation of Liability</h2>
-        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, IN NO EVENT SHALL WE, OUR AFFILIATES, LICENSORS, SERVICE PROVIDERS, EMPLOYEES, AGENTS, OFFICERS, OR DIRECTORS BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL, OR PUNITIVE DAMAGES, INCLUDING, BUT NOT LIMITED TO, LOSS OF PROFITS, LOSS OF DATA, LOSS OF GOODWILL, SERVICE INTERRUPTION, COMPUTER DAMAGE, OR SYSTEM FAILURE, ARISING OUT OF OR IN CONNECTION WITH YOUR USE OF, OR INABILITY TO USE, THE APP.</p>
-        <p>TO THE FULLEST EXTENT PERMITTED BY APPLICABLE LAW, OUR TOTAL AGGREGATE LIABILITY FOR ANY CLAIMS ARISING OUT OF OR RELATING TO THE APP SHALL NOT EXCEED THE AMOUNT YOU PAID FOR THE APP (IF ANY) IN THE TWELVE (12) MONTHS PRIOR TO THE EVENT GIVING RISE TO THE CLAIM.</p>
-        <p>Some jurisdictions do not allow the exclusion or limitation of certain damages, so the above limitations may not apply to you.</p>
+      <h2>1. Service Description</h2>
+      <p>it's fate lets you draw a fortune card for a chosen daily activity and revisit the cards you have drawn. The app is provided for personal, non-commercial entertainment use.</p>
 
-        <h2>Indemnification</h2>
-        <p>You agree to defend, indemnify, and hold harmless us, our affiliates, licensors, service providers, employees, agents, officers, and directors from and against any claims, liabilities, damages, judgments, awards, losses, costs, expenses, or fees (including reasonable attorneys' fees) arising out of or relating to your violation of these Terms or your use of the App.</p>
+      <h2>2. Eligibility</h2>
+      <p>You must be at least 13 years old to use the app. If you are under 18, you should use it under the supervision of a parent or legal guardian. By using the app you confirm that you meet these requirements.</p>
 
-        <h2>Termination</h2>
-        <p>We may terminate or suspend your access to the App at any time, with or without cause, with or without notice, effective immediately. If we terminate your access, all provisions of these Terms which by their nature should survive termination shall survive, including, without limitation, ownership provisions, warranty disclaimers, indemnity, and limitations of liability.</p>
-        <p>You may terminate your use of the App at any time by uninstalling it from your device.</p>
+      <h2>3. Premium Purchase</h2>
+      <p>The app offers a Premium upgrade, available as a <strong>one-time, non-consumable purchase</strong> through the platform's in-app purchase system. Premium unlocks additional features, such as unlimited daily draws.</p>
+      <ul>
+        <li>Payment is charged to your platform store account upon confirmation of purchase.</li>
+        <li>Because this is a non-consumable purchase, it can be restored on the same store account using <em>Settings → Restore Purchase</em>, at no additional charge.</li>
+        <li>Refunds are handled by the platform store (Apple or Google) in accordance with its policies. We cannot issue refunds directly.</li>
+        <li>Prices are shown in the app and may vary by region and over time.</li>
+      </ul>
 
-        <h2>Governing Law and Dispute Resolution</h2>
-        <p>These Terms shall be governed by and construed in accordance with the laws of <strong>Your Jurisdiction</strong>, without regard to its conflict of law provisions.</p>
-        <p>Any dispute arising out of or relating to these Terms or the App shall first be resolved through good-faith negotiation. If the dispute cannot be resolved through negotiation within thirty (30) days, either party may pursue resolution through the courts of competent jurisdiction in <strong>Your Jurisdiction</strong>.</p>
-        <p>For users in the European Union, you may have the right to submit complaints to your local data protection authority or consumer protection agency.</p>
+      <h2>4. Acceptable Use</h2>
+      <p>You agree not to:</p>
+      <ul>
+        <li>use the app for any unlawful purpose;</li>
+        <li>reverse engineer, decompile, or attempt to extract the source code of the app;</li>
+        <li>interfere with, disrupt, or attempt to circumvent the app's purchase verification or security features;</li>
+        <li>copy, modify, distribute, or create derivative works from the app or its content without our written consent.</li>
+      </ul>
 
-        <h2>Changes to Terms</h2>
-        <p>We reserve the right, at our sole discretion, to modify or replace these Terms at any time. We will notify you of any changes by posting the new Terms in the App and updating the "Last updated" date. Your continued use of the App after the effective date of the revised Terms constitutes your acceptance of the changes.</p>
-        <p>If you do not agree to the new Terms, you must stop using the App.</p>
+      <h2>5. Intellectual Property</h2>
+      <p>All content, features, and functionality of the app — including text, fortune card designs, graphics, animations, sound effects, user interface elements, and software code — are the exclusive property of it's fate and its licensors, and are protected by copyright and trademark law.</p>
 
-        <h2>Severability</h2>
-        <p>If any provision of these Terms is held to be invalid, illegal, or unenforceable in any jurisdiction, such invalidity, illegality, or unenforceability shall not affect any other provision, and the remaining provisions shall remain in full force and effect.</p>
+      <h2>6. Disclaimer of Warranties</h2>
+      <p>The app is provided on an "as is" and "as available" basis, without warranties of any kind, whether express or implied. We do not warrant that the app will be uninterrupted, error-free, or available at all times. <strong>Fortune readings are for entertainment purposes only, and we make no representation regarding their accuracy, completeness, or outcome.</strong></p>
 
-        <h2>Waiver</h2>
-        <p>No waiver of any term of these Terms shall be deemed a further or continuing waiver of such term or any other term, and our failure to assert any right or provision under these Terms shall not constitute a waiver of such right or provision.</p>
+      <h2>7. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, it's fate shall not be liable for any indirect, incidental, special, consequential, or punitive damages, or for any loss of profits, data, or goodwill, arising out of or related to your use of, or inability to use, the app. Where liability cannot be excluded, it is limited to the amount you actually paid for the app.</p>
 
-        <h2>Entire Agreement</h2>
-        <p>These Terms, together with our Privacy Policy, constitute the sole and entire agreement between you and us regarding the App and supersede all prior and contemporaneous understandings, agreements, representations, and warranties, both written and oral, regarding the App.</p>
+      <h2>8. Changes and Termination</h2>
+      <p>We may modify, suspend, or discontinue the app or any of its features at any time. We may also update these Terms; material changes will be reflected by an updated "Last updated" date on this page. Continued use of the app after a change constitutes acceptance of the revised Terms.</p>
 
-        <h2>Contact Us</h2>
-        <p>If you have any questions about these Terms, please contact us at:</p>
-        <ul>
-            <li><strong>Email:</strong> <a href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></li>
-        </ul>
-    </div>
+      <h2>9. Governing Law</h2>
+      <p>These Terms are governed by the laws of the jurisdiction in which the developer is established, without regard to conflict-of-law principles. Nothing in these Terms limits any mandatory consumer rights available to you under the law of your country of residence.</p>
 
-    <!-- 页脚 -->
-    <div class="footer">
-        &copy; 2026 it's fate. All rights reserved.
-    </div>
+      <h2>10. Contact Us</h2>
+      <p>If you have any questions about these Terms, please contact us at:</p>
+      <p><a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></p>
+    </article>
 
-</div>
+    <article data-lang="zh" hidden lang="zh-Hans">
+      <h1>服务条款</h1>
+      <p class="updated">最后更新：2026 年 9 月 18 日</p>
 
+      <p>欢迎使用<strong>「it's fate」</strong>。在使用本应用前，请仔细阅读本服务条款。您下载、安装或使用本应用，即表示您同意接受本条款的约束。若您不同意，请勿使用本应用。</p>
+
+      <div class="note">
+        <strong>请注意：</strong>「it's fate」是一款娱乐类应用。签文内容仅为趣味与灵感而生，<strong>不构成任何专业建议</strong> —— 包括医疗、法律、财务或心理方面的建议 —— 请勿依据签文内容作出重要决策。
+      </div>
+
+      <h2>一、服务说明</h2>
+      <p>「it's fate」允许您为所选定的日常活动抽取一张运势卡，并回顾您已抽取的卡片。本应用仅供个人非商业性的娱乐使用。</p>
+
+      <h2>二、使用资格</h2>
+      <p>您须年满 13 周岁方可使用本应用。若您未满 18 周岁，应在父母或法定监护人的监督下使用。使用本应用即表示您确认符合上述要求。</p>
+
+      <h2>三、高级版购买</h2>
+      <p>本应用提供高级版升级，通过平台应用内购买系统以<strong>一次性、非消耗型购买</strong>方式提供。高级版将解锁额外功能，例如每日无限次抽签。</p>
+      <ul>
+        <li>购买确认后，款项将从您的平台商店账号中扣除。</li>
+        <li>由于属非消耗型购买，您可在同一商店账号下通过<em>「设置 → 恢复购买」</em>免费恢复权益。</li>
+        <li>退款由平台商店（Apple 或 Google）依其政策处理，我们无法直接为您办理退款。</li>
+        <li>价格以应用内展示为准，可能因地区与时间而有所不同。</li>
+      </ul>
+
+      <h2>四、使用规范</h2>
+      <p>您同意不会：</p>
+      <ul>
+        <li>将本应用用于任何非法用途；</li>
+        <li>对本应用进行反向工程、反编译或试图提取其源代码；</li>
+        <li>干扰、破坏本应用，或试图绕过其购买校验与安全机制；</li>
+        <li>未经我们书面同意，复制、修改、分发本应用或其内容，或据此创作衍生作品。</li>
+      </ul>
+
+      <h2>五、知识产权</h2>
+      <p>本应用的全部内容、功能与特性 —— 包括文字、运势卡设计、图形、动画、音效、界面元素及软件代码 —— 均为「it's fate」及其许可方的专有财产，受著作权法与商标法保护。</p>
+
+      <h2>六、免责声明</h2>
+      <p>本应用按「现状」及「可获得」状态提供，不作任何明示或默示的担保。我们不保证本应用始终不间断、无错误或随时可用。<strong>签文内容仅供娱乐，我们不对其准确性、完整性或应验与否作出任何承诺。</strong></p>
+
+      <h2>七、责任限制</h2>
+      <p>在适用法律允许的最大范围内，「it's fate」不对因您使用或无法使用本应用而产生的任何间接、附带、特殊、后果性或惩罚性损害，以及任何利润、数据或商誉损失承担责任。在责任无法排除的情形下，赔偿责任以您实际支付的应用费用为限。</p>
+
+      <h2>八、变更与终止</h2>
+      <p>我们可随时修改、暂停或终止本应用或其任何功能。我们也可能更新本条款；重大变更将通过本页面更新的「最后更新」日期体现。变更后您继续使用本应用，即构成对修订后条款的接受。</p>
+
+      <h2>九、适用法律</h2>
+      <p>本条款适用开发者设立地所在司法管辖区的法律，不考虑法律冲突原则。本条款不限制您依居住国法律享有的任何强制性消费者权利。</p>
+
+      <h2>十、联系我们</h2>
+      <p>如您对本条款有任何疑问，请通过以下方式联系我们：</p>
+      <p><a class="mail" href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></p>
+    </article>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 it's fate. All rights reserved.</span>
+    <span><a href="mailto:oyu131@gmail.com">oyu131@gmail.com</a></span>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var html = document.documentElement,
+        be = document.getElementById('btn-en'),
+        bz = document.getElementById('btn-zh'),
+        nodes = document.querySelectorAll('[data-lang]');
+
+    function set(lang) {
+      var isZh = lang === 'zh';
+      for (var i = 0; i < nodes.length; i++) {
+        nodes[i].hidden = nodes[i].getAttribute('data-lang') !== lang;
+      }
+      be.setAttribute('aria-pressed', String(!isZh));
+      bz.setAttribute('aria-pressed', String(isZh));
+      html.lang = isZh ? 'zh-Hans' : 'en';
+      document.title = isZh
+        ? "it's fate — 应用支持、隐私政策与服务条款"
+        : "it's fate — Support, Privacy Policy & Terms of Service";
+      try { localStorage.setItem('itsfate-legal-lang', lang); } catch (e) {}
+    }
+
+    be.addEventListener('click', function () { set('en'); });
+    bz.addEventListener('click', function () { set('zh'); });
+
+    var saved = null;
+    try { saved = localStorage.getItem('itsfate-legal-lang'); } catch (e) {}
+    if (saved === 'zh' || saved === 'en') {
+      set(saved);
+    } else if ((navigator.language || '').toLowerCase().indexOf('zh') === 0) {
+      set('zh');
+    }
+  })();
+</script>
 </body>
 </html>
